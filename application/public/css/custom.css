@@ -1,0 +1,198 @@
+/**************************************************************
+* Author: Mario Leyva Moreno
+*
+* File: custom.css
+*
+* Description: Our main css file to add custom styling, especially for
+* overwriting default bootstrap css.
+*
+**************************************************************/
+
+#main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  bottom: 0%;
+  background-color: #7002c4;
+  color: white;
+  margin-top: auto;
+  padding: 7px;
+  position: relative;
+}
+
+#footer-button {
+  text-align: center;
+  color:white;
+}
+
+.bi.bi-cup-hot {
+  color: purple;
+}
+
+#flex-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-7 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row.align-items-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sign-in-button {
+  margin: 3px;
+  margin-top: 7px;
+}
+
+#sign-up-button {
+  margin: 3px;
+  margin-top: 7px;
+}
+
+.bg-image.container-fluid.border.text-center {
+  background-image: url(https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTM2OTgxMy1pbWFnZS1rd3Z4eHA5MS5qcGc.jpg);
+  background-size: cover;
+}
+
+#home-row {
+  height: 35rem;
+}
+
+#home-title {
+  color: white;
+}
+
+#slogan-footer {
+  color: white;
+}
+
+#register-footer {
+  color: gray;
+}
+
+#owner-footer {
+  color: gray;
+}
+
+.card-group {
+  margin-bottom: 1rem;
+}
+
+.card.h-100 {
+  padding: 5px;
+  margin: 2px;
+}
+
+#home-image {
+  height: 15rem;
+}
+
+#category-title {
+  margin-top: 10rem;
+}
+
+.row.d-flex.align-items-center {
+  height: 35rem;
+}
+
+.login-container {
+  margin-top: 5rem;
+}
+
+#login-form {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+#login-email {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#login-password {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#search {
+  width: 600px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#filter {
+  width:50%;
+}
+
+#checkout-button {
+  margin-top: 10px;
+  width: 50%;
+}
+
+.jumbotron.jumbotron-fluid {
+  margin-bottom: 1rem;
+  background-color: black;
+}
+
+#banner-text {
+  text-align: center;
+  color:white;
+}
+
+.fas.fa-hamburger {
+  font-size: 36px;
+}
+
+.dropdown {
+  margin-top: 9px;
+  margin-left: 5px;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+  background-color: black;
+}
+
+#about-jumbotron {
+  height:400px;
+  background-image: url(https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3AtMzA0LWppcjA1NzktY2hpbS5qcGc.jpg);
+  background-size: cover;
+}
+
+#about-text{
+  text-align: center;
+  color: white;
+  border: black;
+  margin-top: 100px;
+}
+
+.col-12.col-md-6.col-lg-4 {
+  padding-bottom: 15px;/* custom css to add spacing instead of gutters*/
+}
+
+#about-image {
+  height: 250px;
+  background: transparent no-repeat center;
+  background-size: cover;
+}
+
+.btn.btn-primary {
+  color:white;
+  background-color: purple;
+  border-color: white;
+}

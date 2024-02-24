@@ -1,0 +1,102 @@
+<!--/**************************************************************
+* Author: Mario Leyva Moreno
+*
+* File: layout.hbs
+*
+* Description: This file contains all of the reusable components for our handlebars
+* templates, which includes all of our imported css and javascript libraries. The body
+* of this page is a placeholder for the content of our application and includes references
+* to our website banner, navigation bar, and footer, which remain static across all pages.
+* It also includes scripts for our login/logout functionality and bootstrap client side validation code
+* as they are used across all of our pages.
+*
+**************************************************************/-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/custom.css">
+  <link rel="icon" href="data:,">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmqtDK6VhShU_U-oV8SrGI53wSluNA-wI&callback=initMap"></script>
+  {{#each js}}
+  <script defer type="text/javascript" src="/public/js/{{this}}"></script>
+  {{/each}}
+</head>
+
+<body>
+  <div id="main-container">
+    {{> banner}}
+    {{> nav}}
+    {{> flashmessage}}
+    {{{body}}}
+    {{> footer}}
+  </div>
+  {{#if logged}}
+  <script>
+    let element = document.getElementById('logout-button');
+    if (element) {
+      element.onclick = (event) => {
+        fetch('/users/logout', {
+          method: "POST"
+        })
+          .then((data) => {
+            location.replace('/');
+          })
+      }
+    }
+  </script>
+  {{/if}}
+  
+  <!--reference: https://getbootstrap.com/docs/5.0/forms/validation/-->
+  <script>
+    // JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            } else {
+              // added password validation code to prevent submission if password confirmation is invalid
+              let password = document.getElementById('inputPassword').value;
+              let confirmPassword = document.getElementById('inputPasswordConfirm').value;
+              if (password !== confirmPassword) {
+                event.preventDefault();
+                event.stopPropagation();
+                document.getElementById('CheckPasswordMatch').textContent = 'Password does not match!';
+              }
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+</body>
+
+</html>
